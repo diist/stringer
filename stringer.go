@@ -16,6 +16,12 @@ func check(e error) {
 func main() {
 	bytes, err := ioutil.ReadAll(os.Stdin)
 	check(err)
+
 	s, _ := strconv.Unquote(string(bytes))
-	fmt.Println(string(s))
+
+	if len(s) == 0 {
+		fmt.Println(string(bytes))
+	} else {
+		fmt.Println(string(s))
+	}
 }
